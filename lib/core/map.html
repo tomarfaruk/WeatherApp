@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Iframe</title>
+    <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d12613.837129775044!2d-122.4192417!3d37.779275!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0xb2706dff83574f4a!2sSan%20Francisco%20City%20Hall!5e0!3m2!1sen!2sbd!4v1644208435607!5m2!1sen!2sbd" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+</head>
+</html>
+WebView(
+    javascriptMode: JavascriptMode.unrestricted,
+    onWebViewCreated: (ctr) {
+      this.ctr = ctr;
+      final url = Uri.dataFromString(
+        """<iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d12613.837129775044!2d-122.4192417!3d37.779275!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0xb2706dff83574f4a!2sSan%20Francisco%20City%20Hall!5e0!3m2!1sen!2sbd!4v1644208435607!5m2!1sen!2sbd" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"></iframe>""",
+        mimeType: 'text/html',
+        encoding: Encoding.getByName('utf-8'),
+      ).toString();
+      this.ctr.loadUrl(url);
+    },
+  )
