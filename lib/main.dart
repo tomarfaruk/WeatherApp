@@ -1,8 +1,11 @@
 import 'package:flare_flutter/flare_actor.dart';
 import 'package:flutter/material.dart';
 
-void main() {
+import 'injector.dart' as injector;
+
+Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
+  await injector.init();
   runApp(const MyApp());
 }
 

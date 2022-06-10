@@ -10,10 +10,10 @@ abstract class WeatherRemoteDataSource {
   Future<WeatherSearchResponseModel> searchWeather(String q);
 }
 
-class RemoteDataSourceImpl implements WeatherRemoteDataSource {
+class WeatherRemoteDataSourceImpl implements WeatherRemoteDataSource {
   final http.Client client;
 
-  RemoteDataSourceImpl({required this.client});
+  WeatherRemoteDataSourceImpl({required this.client});
 
   @override
   Future<WeatherSearchResponseModel> searchWeather(String q) async {

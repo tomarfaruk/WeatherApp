@@ -1,16 +1,23 @@
-import 'package:weather_app/core/data/datasources/remote_data_source.dart';
-import 'package:weather_app/core/error/exception.dart';
-import 'package:weather_app/core/error/failure.dart';
-
 import 'package:dartz/dartz.dart';
 
+import '../../../../core/data/datasources/wiather_remote_data_source.dart';
+import '../../../../core/data/datasources/weather_local_data_source.dart';
+import '../../../../core/error/exception.dart';
+import '../../../../core/error/failure.dart';
+import '../../../../core/network_checker/network_checker.dart';
 import '../../domain/entities/search_weather_entity.dart';
 import '../../domain/repositories/search_weather_repository.dart';
 
 class SearchWeatherRepositoryImpl extends SearchWeatherRepository {
   final WeatherRemoteDataSource dataSource;
+  final NetworkChecker networkChecker;
+  final WeatherLocalDataSource localDataSource;
+  SearchWeatherRepositoryImpl({
+    required this.dataSource,
+    required this.networkChecker,
+    required this.localDataSource,
+  });
 
-  SearchWeatherRepositoryImpl(this.dataSource);
   @override
   Future<Either<Failure, SearchWeatherEntity>> getWeather(String q) async {
     try {
