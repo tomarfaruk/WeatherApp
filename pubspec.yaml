@@ -30,6 +30,9 @@ dependencies:
   google_fonts: ^3.0.1
   intl: ^0.17.0
   timeago: ^3.2.2
+  flare_flutter: ^3.0.2
+  get_it: ^7.2.0
+  data_connection_checker: ^0.3.4
 
 dev_dependencies:
   flutter_test:

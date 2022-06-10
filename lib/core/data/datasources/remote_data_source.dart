@@ -2,22 +2,23 @@ import 'dart:convert';
 import 'dart:developer';
 import 'dart:io';
 import 'package:http/http.dart' as http;
+import '../../../features/weather_search/data/models/search_weather_model.dart';
 import '../../error/exception.dart';
 import '../../remote_urls.dart';
 
-abstract class RemoteDataSource {
-  Future<void> getProductDetails(String slug);
+abstract class WeatherRemoteDataSource {
+  Future<WeatherSearchResponseModel> searchWeather(String q);
 }
 
-class RemoteDataSourceImpl implements RemoteDataSource {
+class RemoteDataSourceImpl implements WeatherRemoteDataSource {
   final http.Client client;
 
   RemoteDataSourceImpl({required this.client});
 
   @override
-  Future<void> getProductDetails(String slug) async {
+  Future<WeatherSearchResponseModel> searchWeather(String q) async {
     try {
-      final uri = Uri.parse(RemoteUrls.productDetail(slug));
+      final uri = Uri.parse(RemoteUrls.searchApi(q));
 
       final response = await client.get(
         uri,
@@ -25,7 +26,7 @@ class RemoteDataSourceImpl implements RemoteDataSource {
       );
       final responseJsonBody = _responseParser(response);
 
-      // return ProductDetailsModel.fromMap(responseJsonBody);
+      return WeatherSearchResponseModel.fromMap(responseJsonBody);
     } on SocketException {
       throw NetworkException('Connection problem');
     } on FormatException {
