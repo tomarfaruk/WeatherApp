@@ -32,8 +32,8 @@ class WeatherRemoteDataSourceImpl implements WeatherRemoteDataSource {
       );
 
       final response = await client.get(uri);
-      print(response.body);
-      print(response.statusCode);
+      log(response.body);
+      log(response.statusCode.toString());
       final responseJsonBody = _responseParser(response);
 
       return WeatherSearchResponseModel.fromMap(responseJsonBody);
