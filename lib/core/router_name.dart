@@ -1,6 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:weather_app/resources/constants.dart';
-
 import '../features/weather_search/presentation/pages/weather_search_page.dart';
 
 class RouteNames {
@@ -14,7 +12,7 @@ class RouteNames {
       default:
         return MaterialPageRoute(
           builder: (_) => Scaffold(
-            backgroundColor: redColor,
+            backgroundColor: Colors.red,
             body: Center(child: Text('No route defined for ${settings.name}')),
           ),
         );

@@ -41,6 +41,7 @@ dev_dependencies:
 
   # for to test
   mocktail: ^0.3.0
+  bloc_test: 
 
 
   flutter_lints: ^1.0.0

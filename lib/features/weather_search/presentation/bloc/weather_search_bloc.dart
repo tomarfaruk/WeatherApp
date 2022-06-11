@@ -11,10 +11,10 @@ class WeatherSearchBloc extends Bloc<WeatherSearchEvent, WeatherSearchState> {
   final SearchWeatherUsecase usecase;
   WeatherSearchBloc({required this.usecase})
       : super(WeatherSearchStateInitial()) {
-    on<WeatherSearchEventSearch>(_searchEvent);
+    on<WeatherSearchEventSearch>(_weatherSearchEvent);
   }
 
-  Future<void> _searchEvent(WeatherSearchEventSearch eventSearch,
+  Future<void> _weatherSearchEvent(WeatherSearchEventSearch eventSearch,
       Emitter<WeatherSearchState> emit) async {
     emit(WeatherSearchStateLoading());
     // await Future.delayed(const Duration(seconds: 5));

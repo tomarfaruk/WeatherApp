@@ -65,9 +65,9 @@ class _WeatherSearchPageState extends State<WeatherSearchPage> {
         return null;
       },
       onChanged: (String v) {},
-      onFieldSubmitted: (s) {
+      onFieldSubmitted: (String s) {
         if (s.isEmpty) return;
-        _search(s);
+        _search(s.trim());
       },
       decoration: const InputDecoration(
         isDense: true,
