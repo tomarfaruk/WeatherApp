@@ -32,7 +32,8 @@ dependencies:
   timeago: ^3.2.2
   flare_flutter: ^3.0.2
   get_it: ^7.2.0
-  data_connection_checker: ^0.3.4
+  connectivity_plus: ^2.3.0
+  
 
 dev_dependencies:
   flutter_test:

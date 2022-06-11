@@ -1,8 +1,11 @@
 import '../.env.dart';
 
 class RemoteUrls {
-  static const String rootUrl =
-      "http://api.openweathermap.org/data/2.5/weather";
+  static const String domainName = "api.openweathermap.org";
 
-  static String searchApi(String q) => rootUrl + '?q=$q&APPID=${Env.mapKey}';
+  static String searchApi(String q) => domainName + '?q=$q&APPID=${Env.mapKey}';
+
+  static String iconUrl(String iconName) {
+    return 'https://openweathermap.org/img/wn/$iconName@2x.png';
+  }
 }

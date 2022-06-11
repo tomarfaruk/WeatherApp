@@ -2,9 +2,11 @@ import 'dart:convert';
 import 'dart:developer';
 import 'dart:io';
 import 'package:http/http.dart' as http;
-import '../../../features/weather_search/data/models/search_weather_model.dart';
-import '../../error/exception.dart';
-import '../../remote_urls.dart';
+
+import '../../../../.env.dart';
+import '../../../../core/error/exception.dart';
+import '../../../../core/remote_urls.dart';
+import '../models/search_weather_model.dart';
 
 abstract class WeatherRemoteDataSource {
   Future<WeatherSearchResponseModel> searchWeather(String q);
@@ -18,12 +20,20 @@ class WeatherRemoteDataSourceImpl implements WeatherRemoteDataSource {
   @override
   Future<WeatherSearchResponseModel> searchWeather(String q) async {
     try {
-      final uri = Uri.parse(RemoteUrls.searchApi(q));
-
-      final response = await client.get(
-        uri,
-        headers: {'Content-Type': 'application/json'},
+      final queryParameters = {
+        "q": q,
+        'APPID': Env.mapKey,
+        'units': 'imperial',
+      };
+      final uri = Uri.http(
+        RemoteUrls.domainName,
+        "/data/2.5/weather",
+        queryParameters,
       );
+
+      final response = await client.get(uri);
+      print(response.body);
+      print(response.statusCode);
       final responseJsonBody = _responseParser(response);
 
       return WeatherSearchResponseModel.fromMap(responseJsonBody);
@@ -57,6 +67,9 @@ dynamic _responseParser(http.Response response) {
     case 402:
     case 403:
       throw UnauthorisedException('You are not unauthorised');
+    case 404:
+      final msg = parsingError1(response.body);
+      throw BadRequestException(msg);
     case 422:
       final errorMsg = parsingError1(response.body);
       throw InvalidInputException(errorMsg);

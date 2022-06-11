@@ -1,17 +1,16 @@
 import 'package:shared_preferences/shared_preferences.dart';
-
-import '../../../features/weather_search/data/models/search_weather_model.dart';
-import '../../../resources/k_strings.dart';
-import '../../error/exception.dart';
+import '../../../../core/error/exception.dart';
+import '../../../../resources/k_strings.dart';
+import '../models/search_weather_model.dart';
 
 abstract class WeatherLocalDataSource {
   /// Gets the cached [WeatherSearchResponseModel] which was gotten the last time
   /// the user had an internet connection.
   ///
   /// Throws [CacheException] if no cached data is present.
-  Future<WeatherSearchResponseModel> getLastNumberTrivia();
+  Future<WeatherSearchResponseModel> getLastWeather();
 
-  Future<void> cacheNumberTrivia(
+  Future<void> cacheWeather(
       WeatherSearchResponseModel weatherSearchResponseModel);
 }
 
@@ -21,7 +20,7 @@ class WeatherLocalDataSourceImpl implements WeatherLocalDataSource {
   WeatherLocalDataSourceImpl({required this.sharedPreferences});
 
   @override
-  Future<WeatherSearchResponseModel> getLastNumberTrivia() {
+  Future<WeatherSearchResponseModel> getLastWeather() {
     final jsonString =
         sharedPreferences.getString(Kstrings.cachedWeatherDataKey);
     if (jsonString != null) {
@@ -32,7 +31,7 @@ class WeatherLocalDataSourceImpl implements WeatherLocalDataSource {
   }
 
   @override
-  Future<void> cacheNumberTrivia(WeatherSearchResponseModel triviaToCache) {
+  Future<void> cacheWeather(WeatherSearchResponseModel triviaToCache) {
     return sharedPreferences.setString(
       Kstrings.cachedWeatherDataKey,
       triviaToCache.toJson(),

@@ -43,6 +43,7 @@ class WeatherSearchResponseModel extends Equatable {
         tempMin: main.tempMin,
         weatherMain: weather.first.main,
         weatherDescription: weather.first.description,
+        icon: weather.first.icon,
       );
 
   WeatherSearchResponseModel copyWith({

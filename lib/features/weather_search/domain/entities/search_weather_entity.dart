@@ -6,6 +6,7 @@ class SearchWeatherEntity extends Equatable {
   final String name;
   final String weatherMain;
   final String weatherDescription;
+  final String icon;
   final double temp;
   final double tempMax;
   final double tempMin;
@@ -15,6 +16,7 @@ class SearchWeatherEntity extends Equatable {
     required this.name,
     required this.weatherMain,
     required this.weatherDescription,
+    required this.icon,
     required this.temp,
     required this.tempMax,
     required this.tempMin,
@@ -26,6 +28,7 @@ class SearchWeatherEntity extends Equatable {
     String? name,
     String? weatherMain,
     String? weatherDescription,
+    String? icon,
     double? temp,
     double? tempMax,
     double? tempMin,
@@ -36,6 +39,7 @@ class SearchWeatherEntity extends Equatable {
       name: name ?? this.name,
       weatherMain: weatherMain ?? this.weatherMain,
       weatherDescription: weatherDescription ?? this.weatherDescription,
+      icon: icon ?? this.icon,
       temp: temp ?? this.temp,
       tempMax: tempMax ?? this.tempMax,
       tempMin: tempMin ?? this.tempMin,
@@ -50,6 +54,7 @@ class SearchWeatherEntity extends Equatable {
     result.addAll({'name': name});
     result.addAll({'weatherMain': weatherMain});
     result.addAll({'weatherDescription': weatherDescription});
+    result.addAll({'icon': icon});
     result.addAll({'temp': temp});
     result.addAll({'tempMax': tempMax});
     result.addAll({'tempMin': tempMin});
@@ -64,6 +69,7 @@ class SearchWeatherEntity extends Equatable {
       name: map['name'] ?? '',
       weatherMain: map['weatherMain'] ?? '',
       weatherDescription: map['weatherDescription'] ?? '',
+      icon: map['icon'] ?? '',
       temp: map['temp']?.toDouble() ?? 0.0,
       tempMax: map['tempMax']?.toDouble() ?? 0.0,
       tempMin: map['tempMin']?.toDouble() ?? 0.0,
@@ -79,7 +85,7 @@ class SearchWeatherEntity extends Equatable {
 
   @override
   String toString() {
-    return 'SearchWeatherEntity(name: $name, weatherMain: $weatherMain, weatherDescription: $weatherDescription, temp: $temp, tempMax: $tempMax, tempMin: $tempMin, pressure: $pressure, humidity: $humidity)';
+    return 'SearchWeatherEntity(name: $name, weatherMain: $weatherMain, weatherDescription: $weatherDescription, icon: $icon, temp: $temp, tempMax: $tempMax, tempMin: $tempMin, pressure: $pressure, humidity: $humidity)';
   }
 
   @override
@@ -88,6 +94,7 @@ class SearchWeatherEntity extends Equatable {
       name,
       weatherMain,
       weatherDescription,
+      icon,
       temp,
       tempMax,
       tempMin,

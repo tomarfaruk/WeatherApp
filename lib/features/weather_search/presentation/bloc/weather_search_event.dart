@@ -6,3 +6,11 @@ abstract class WeatherSearchEvent extends Equatable {
   @override
   List<Object> get props => [];
 }
+
+class WeatherSearchEventSearch extends WeatherSearchEvent {
+  final String location;
+  const WeatherSearchEventSearch(this.location);
+
+  @override
+  List<Object> get props => [location];
+}
