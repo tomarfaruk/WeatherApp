@@ -10,7 +10,7 @@ abstract class WeatherLocalDataSource {
   /// Throws [CacheException] if no cached data is present.
   Future<WeatherSearchResponseModel> getLastWeather();
 
-  Future<void> cacheWeather(
+  Future<bool> cacheWeather(
       WeatherSearchResponseModel weatherSearchResponseModel);
 }
 
@@ -31,7 +31,7 @@ class WeatherLocalDataSourceImpl implements WeatherLocalDataSource {
   }
 
   @override
-  Future<void> cacheWeather(WeatherSearchResponseModel triviaToCache) {
+  Future<bool> cacheWeather(WeatherSearchResponseModel triviaToCache) {
     return sharedPreferences.setString(
       Kstrings.cachedWeatherDataKey,
       triviaToCache.toJson(),

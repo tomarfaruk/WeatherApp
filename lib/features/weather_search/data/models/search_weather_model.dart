@@ -260,8 +260,6 @@ class MainModel extends Equatable {
   final double tempMax;
   final int pressure;
   final int humidity;
-  final int seaLevel;
-  final int grndLevel;
   const MainModel({
     required this.temp,
     required this.feelsLike,
@@ -269,8 +267,6 @@ class MainModel extends Equatable {
     required this.tempMax,
     required this.pressure,
     required this.humidity,
-    required this.seaLevel,
-    required this.grndLevel,
   });
 
   MainModel copyWith({
@@ -280,8 +276,6 @@ class MainModel extends Equatable {
     double? tempMax,
     int? pressure,
     int? humidity,
-    int? seaLevel,
-    int? grndLevel,
   }) {
     return MainModel(
       temp: temp ?? this.temp,
@@ -290,8 +284,6 @@ class MainModel extends Equatable {
       tempMax: tempMax ?? this.tempMax,
       pressure: pressure ?? this.pressure,
       humidity: humidity ?? this.humidity,
-      seaLevel: seaLevel ?? this.seaLevel,
-      grndLevel: grndLevel ?? this.grndLevel,
     );
   }
 
@@ -304,8 +296,6 @@ class MainModel extends Equatable {
     result.addAll({'temp_max': tempMax});
     result.addAll({'pressure': pressure});
     result.addAll({'humidity': humidity});
-    result.addAll({'sea_level': seaLevel});
-    result.addAll({'grnd_level': grndLevel});
 
     return result;
   }
@@ -318,8 +308,6 @@ class MainModel extends Equatable {
       tempMax: map['temp_max']?.toDouble() ?? 0.0,
       pressure: map['pressure']?.toInt() ?? 0,
       humidity: map['humidity']?.toInt() ?? 0,
-      seaLevel: map['sea_level']?.toInt() ?? 0,
-      grndLevel: map['grnd_level']?.toInt() ?? 0,
     );
   }
 
@@ -330,7 +318,7 @@ class MainModel extends Equatable {
 
   @override
   String toString() {
-    return 'MainModel(temp: $temp, feels_like: $feelsLike, temp_min: $tempMin, temp_max: $tempMax, pressure: $pressure, humidity: $humidity, sea_level: $seaLevel, grnd_level: $grndLevel)';
+    return 'MainModel(temp: $temp, feels_like: $feelsLike, temp_min: $tempMin, temp_max: $tempMax, pressure: $pressure, humidity: $humidity)';
   }
 
   @override
@@ -342,8 +330,6 @@ class MainModel extends Equatable {
       tempMax,
       pressure,
       humidity,
-      seaLevel,
-      grndLevel,
     ];
   }
 }

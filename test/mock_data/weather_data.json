@@ -1,43 +1,43 @@
 {
-    "coord": {
-      "lon": 90.4074,
-      "lat": 23.7104
-    },
-    "weather": [
-      {
-        "id": 721,
-        "main": "Haze",
-        "description": "haze",
-        "icon": "50d"
-      }
-    ],
-    "base": "stations",
-    "main": {
-      "temp": 306.14,
-      "feels_like": 310.94,
-      "temp_min": 306.14,
-      "temp_max": 306.14,
-      "pressure": 1001,
-      "humidity": 55
-    },
-    "visibility": 4000,
-    "wind": {
-      "speed": 5.14,
-      "deg": 160
-    },
-    "clouds": {
-      "all": 75
-    },
-    "dt": 1654937049,
-    "sys": {
-      "type": 1,
-      "id": 9145,
-      "country": "BD",
-      "sunrise": 1654902655,
-      "sunset": 1654951510
-    },
-    "timezone": 21600,
-    "id": 1185241,
-    "name": "Dhaka",
-    "cod": 200
-  }
+  "coord": {
+    "lon": 90.4074,
+    "lat": 23.7104
+  },
+  "weather": [
+    {
+      "id": 721,
+      "main": "Haze",
+      "description": "haze",
+      "icon": "50d"
+    }
+  ],
+  "base": "stations",
+  "main": {
+    "temp": 306.14,
+    "feels_like": 310.94,
+    "temp_min": 306.14,
+    "temp_max": 306.14,
+    "pressure": 1001,
+    "humidity": 55
+  },
+  "visibility": 4000,
+  "wind": {
+    "speed": 5.14,
+    "deg": 160
+  },
+  "clouds": {
+    "all": 75
+  },
+  "dt": 1654937049,
+  "sys": {
+    "type": 1,
+    "id": 9145,
+    "country": "BD",
+    "sunrise": 1654902655,
+    "sunset": 1654951510
+  },
+  "timezone": 21600,
+  "id": 1185241,
+  "name": "Dhaka",
+  "cod": 200
+}
